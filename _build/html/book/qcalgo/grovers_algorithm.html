@@ -646,7 +646,10 @@
 <p>Но при срабатывании гейта на индексе <span class="math notranslate nohighlight">\(11\)</span> к вспомогательному кубиту применится оператор <span class="math notranslate nohighlight">\(X\)</span>, так что вспомогательный кубит примет состояние <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}(|1\rangle - |0\rangle)\)</span>, или, если это состояние записать по-другому, за скобками появится минус: <span class="math notranslate nohighlight">\(-\frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)\)</span>.</p>
 <p>Этот минус относится не только к вспомогательному кубиту, но и ко всему состоянию, соответствующему индексу <span class="math notranslate nohighlight">\(11\)</span>, так что можно считать, что вспомогательный кубит остался неизменным, и отнести минус к состоянию <span class="math notranslate nohighlight">\(11\)</span> верхних кубитов. Таким образом, индекс <span class="math notranslate nohighlight">\(11\)</span> помечен минусом как искомый. Другими словами, функция-оракул перевела состояние <span class="math notranslate nohighlight">\(|11\rangle |q_{helper}\rangle\)</span> в состояние <span class="math notranslate nohighlight">\(-|11\rangle |q_{helper}\rangle\)</span>, где <span class="math notranslate nohighlight">\(|q_{helper}\rangle\)</span> – вспомогательный кубит.</p>
 <p>Запишем состояние квантовой схемы после применения оракула (состояние вспомогательного кубита – скобка справа):</p>
-<p><span class="math notranslate nohighlight">\(|\psi\rangle = \frac{1}{2\sqrt{2}}(|00\rangle + |01\rangle + |10\rangle - |11\rangle)(|0\rangle - |1\rangle)\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+|\psi\rangle = \frac{1}{2\sqrt{2}}(|00\rangle + |01\rangle + |10\rangle - |11\rangle)(|0\rangle - |1\rangle)
+\]</div>
 <p>Итак, первая часть первой итерации завершена. Искомый индекс помечен, но если измерить кубиты прямо сейчас, то это ничего не даст – минус не проявит себя при измерении. Да и сам индекс <span class="math notranslate nohighlight">\(11\)</span> будет получен только с вероятностью <span class="math notranslate nohighlight">\(0.25\)</span> – такой же, как и у других индексов.</p>
 <p>Для того, чтобы лучше понять дальнейшие действия, представим первую половину работы алгоритма в виде рисунка, показывающего вектор текущего состояния. В качестве единичного вектора горизонтальной оси мы будем использовать все состояния из суперпозиции кроме того, который соответствует искомому индексу, а вертикальным единичным вектором будет искомый вектор.</p>
 <p>Вектор <span class="math notranslate nohighlight">\(c\)</span> – состояние системы перед первой итерацией – является линейной комбинацией векторов, соответствующим горизонтальной и вертикальной осям.</p>
@@ -655,12 +658,21 @@
 <p class="caption"><span class="caption-number">Fig. 66 </span><span class="caption-text">Состояние системы перед первой итерацией.</span><a class="headerlink" href="#grover-1a" title="Permalink to this image">¶</a></p>
 </div>
 <p>Можно выразить вектор <span class="math notranslate nohighlight">\(c\)</span> для нашего случая (системы из двух кубитов с искомым индексом <span class="math notranslate nohighlight">\(11\)</span>), обозначив его координаты за <span class="math notranslate nohighlight">\(x\)</span> и <span class="math notranslate nohighlight">\(y\)</span>:</p>
-<p><span class="math notranslate nohighlight">\(\frac{1}{2}(|00\rangle + |01\rangle + |10\rangle + |11\rangle) = x \frac{1}{\sqrt{3}}(|00\rangle + |01\rangle + |10\rangle) + y |11\rangle\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{2}(|00\rangle + |01\rangle + |10\rangle + |11\rangle) = x \frac{1}{\sqrt{3}}(|00\rangle + |01\rangle + |10\rangle) + y |11\rangle
+\]</div>
 <p>Из данного уравнения находим <span class="math notranslate nohighlight">\(x = \frac{\sqrt{3}}{2}\)</span> и <span class="math notranslate nohighlight">\(y = \frac{1}{2}\)</span>.</p>
 <p>По этим координатам можно понять, что угол между вектором <span class="math notranslate nohighlight">\(с\)</span> и горизонтальной осью (обозначим его как <span class="math notranslate nohighlight">\(\theta\)</span>) равен <span class="math notranslate nohighlight">\(\frac{\pi}{6}\)</span>. Если забежать немного вперед, то можно сказать, что наша цель – добиться, чтобы текущее состояние дошло до <span class="math notranslate nohighlight">\(\frac{\pi}{2}\)</span> (или хотя бы приблизительно), то есть почти или полностью равнялось искомому состоянию, так что после измерения можно было его и получить с высокой вероятностью.</p>
 <p>Координаты текущего вектора состояния можно записать через угол <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
-<p><span class="math notranslate nohighlight">\(x = \cos{\theta}\)</span></p>
-<p><span class="math notranslate nohighlight">\(y = \sin{\theta}\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+x = \cos{\theta}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y = \sin{\theta}
+\]</div>
 <p>На всякий случай нужно уточнить, что вспомогательный кубит не отражается на рисунке с окружностью, так как он не предназначен для обозначения индекса, а только хранит в себе его метку.</p>
 <p>После применения функции-оракула текущий вектор отразится относительно горизонтальной оси. Объясняется это очень легко – его вертикальная компонента (вектор <span class="math notranslate nohighlight">\(|11\rangle\)</span>) становится отрицательной.</p>
 <p>Вектор <span class="math notranslate nohighlight">\(c_{1b}\)</span> – это отражение вектора <span class="math notranslate nohighlight">\(c\)</span> на угол <span class="math notranslate nohighlight">\(\theta\)</span> вниз относительно горизонтальной оси:</p>
@@ -669,19 +681,28 @@
 <p class="caption"><span class="caption-number">Fig. 67 </span><span class="caption-text">Состояние системы после первой части первой итерации.</span><a class="headerlink" href="#grover-1b" title="Permalink to this image">¶</a></p>
 </div>
 <p>Такое отражение в нашем примере производится с помощью операции <span class="math notranslate nohighlight">\(CCNOT\)</span>, но в общем случае операция выглядит так:</p>
-<p><span class="math notranslate nohighlight">\(U_{1b} = I - 2|b\rangle \langle b|\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+U_{1b} = I - 2|b\rangle \langle b|
+\]</div>
 <p>Функцию-оракул мы здесь обозначили как <span class="math notranslate nohighlight">\(U_{1b}\)</span>. Она меняет знак только для вертикальной составляющей вектора состояния, поэтому и происходит отражение.</p>
 <p>Проверим формулу в действии, применив ее для нашего примера:</p>
-<p><span class="math notranslate nohighlight">\(U_{1b} |c\rangle = (I - 2|11\rangle \langle 11|) \frac{1}{2}(|00\rangle + |01\rangle + |10\rangle + |11\rangle) = \frac{1}{2} (|00\rangle + |01\rangle + |10\rangle + |11\rangle - 2|11\rangle) = \frac{1}{2} (|00\rangle + |01\rangle + |10\rangle - |11\rangle)\)</span></p>
+<p><span class="math notranslate nohighlight">\(U_{1b} |c\rangle = (I - 2|11\rangle \langle 11|) \frac{1}{2}(|00\rangle + |01\rangle + |10\rangle + |11\rangle) = \frac{1}{2} (|00\rangle + |01\rangle + |10\rangle + |11\rangle - 2|11\rangle) =\)</span>
+<span class="math notranslate nohighlight">\(= \frac{1}{2} (|00\rangle + |01\rangle + |10\rangle - |11\rangle)\)</span></p>
 <p>И наконец приступаем к разбору второй части первой итерации. В ней будет происходить еще одно отражение вектора, но уже не относительно горизонтальной оси, а относительно вектора <span class="math notranslate nohighlight">\(c\)</span>. Нетрудно заметить, что при этом текущий вектор состояния станет равен <span class="math notranslate nohighlight">\(\cos{3 \theta}|a\rangle + \sin{3 \theta}|b\rangle\)</span>.</p>
 <div class="figure align-default" id="grover-1c">
 <a class="reference internal image-reference" href="../../_images/grover_1c.png"><img alt="../../_images/grover_1c.png" src="../../_images/grover_1c.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 68 </span><span class="caption-text">Состояние системы после второй части первой итерации.</span><a class="headerlink" href="#grover-1c" title="Permalink to this image">¶</a></p>
 </div>
 <p>Операция для получения вектора <span class="math notranslate nohighlight">\(c_{1c}\)</span> будет выглядеть так:</p>
-<p><span class="math notranslate nohighlight">\(U_{1c} = 2|c\rangle \langle c| - I\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+U_{1c} = 2|c\rangle \langle c| - I
+\]</div>
 <p>Посчитаем, чему равен вектор <span class="math notranslate nohighlight">\(c_{1c}\)</span> для нашего примера:</p>
-<p><span class="math notranslate nohighlight">\(U_{1c} |c_{1b}\rangle = (2|c\rangle \langle c| - I) \frac{1}{2}(|00\rangle + |01\rangle + |10\rangle - |11\rangle) = |11\rangle\)</span></p>
+<div class="math notranslate nohighlight">
+\[U_{1c} |c_{1b}\rangle = (2|c\rangle \langle c| - I) \frac{1}{2}(|00\rangle + |01\rangle + |10\rangle - |11\rangle) = |11\rangle
+\]</div>
 <p>Произошло отражение текущего вектора состояния <span class="math notranslate nohighlight">\(|c_{1b}\rangle\)</span> относительно вектора <span class="math notranslate nohighlight">\(|c\rangle\)</span>. Если представить <span class="math notranslate nohighlight">\(|c_{1b}\rangle\)</span> как <span class="math notranslate nohighlight">\(k_1 |c\rangle + k_2 |c_{\bot}\rangle\)</span>, где <span class="math notranslate nohighlight">\(|c_{\bot}\rangle\)</span> – вектор, перпендикулярный <span class="math notranslate nohighlight">\(|c\rangle\)</span>, а <span class="math notranslate nohighlight">\(k_1\)</span> и <span class="math notranslate nohighlight">\(k_2\)</span> – действительные коэффициенты, то тогда отраженный вектор будет равен <span class="math notranslate nohighlight">\(k_1 |c\rangle - k_2 |c_{\bot}\rangle\)</span>.</p>
 <p>В нашей квантовой схеме эта часть итерации реализована таким образом:</p>
 <div class="figure align-default" id="iteration-part2">
@@ -693,7 +714,10 @@
 <p>Из-за применения такого лайфхака (присвоения минуса нулевому состоянию) мы в нашем двухкубитном примере получим результат с точностью до общей фазы: не <span class="math notranslate nohighlight">\(|11\rangle\)</span>, а <span class="math notranslate nohighlight">\(-|11\rangle\)</span>. Но это не страшно, так как после измерения мы все равно увидим искомое значение индекса.</p>
 <p>По рисунку, изображающему на окружности состояние системы после второй части первой итерации, видно, что в общем случае каждая последующая итерация будет приближать текущий вектор к вертикальному. Но в нашем случае угол между вектором состояния и горизонтальной осью после окончания первой итерации равен <span class="math notranslate nohighlight">\(3 \theta\)</span>, то есть это уже и есть желаемый угол <span class="math notranslate nohighlight">\(\frac{\pi}{2}\)</span>.</p>
 <p>В общем случае этот угол равен <span class="math notranslate nohighlight">\((2t + 1) \theta \approx \frac{\pi}{2}\)</span>, где <span class="math notranslate nohighlight">\(t\)</span> – номер произведенной итерации. Отсюда можно вывести число итераций, необходимое для работы алгоритма. При большом количестве итераций <span class="math notranslate nohighlight">\(t\)</span> угол <span class="math notranslate nohighlight">\(\theta\)</span> будет стремиться к <span class="math notranslate nohighlight">\(0\)</span>, так что его можно заменить на <span class="math notranslate nohighlight">\(\sin{\theta}\)</span>, который, в свою очередь, равен <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{N}}\)</span>:</p>
-<p><span class="math notranslate nohighlight">\((2t + 1) \theta \rightarrow (2t + 1) \frac{1}{\sqrt{N}} \approx \frac{\pi}{2}\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+(2t + 1) \theta \rightarrow (2t + 1) \frac{1}{\sqrt{N}} \approx \frac{\pi}{2}
+\]</div>
 <p>Если пренебречь единицей в скобках на основании того, что <span class="math notranslate nohighlight">\(t\)</span> – большое число, можно найти, что <span class="math notranslate nohighlight">\(t\)</span> приблизительно равно <span class="math notranslate nohighlight">\(\frac{\pi \sqrt{N}}{4}\)</span>.</p>
 <p>Мы уже разобрались, что каждая итерация состоит из двух частей. Первая часть – отражение вниз относительно горизонтальной оси. Вторая часть – отражение вверх относительно изначального состояния, то есть вектора <span class="math notranslate nohighlight">\(c\)</span>. Вектор состояния всегда будет отражаться вверх на больший угол, чем в первой части итерации. Этим и будет обеспечиваться его постепенное приближение в вертикальной оси.</p>
 <p>Мы разобрали случай, когда требуется найти один объект в таблице. Если же потребуется найти несколько объектов, то тогда, обозначив их количество за <span class="math notranslate nohighlight">\(K\)</span>, мы должны будем проделать около <span class="math notranslate nohighlight">\(\frac {\pi}{4} \sqrt {\frac{N}{K}}\)</span> итераций. Таким образом, для успешной работы алгоритма Гровера необходимо знать число <span class="math notranslate nohighlight">\(K\)</span>, чтобы можно было найти через него угол <span class="math notranslate nohighlight">\(\theta\)</span>, а затем число итераций.</p>
