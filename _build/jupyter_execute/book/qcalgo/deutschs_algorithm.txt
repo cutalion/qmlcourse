@@ -19,6 +19,12 @@ def f4():
 
 black_boxes_dict = {"f1": f1, "f2": f2, "f3": f3, "f4": f4}
 
+def random_black_box(black_boxes_dict):
+    black_boxes_dict_list_keys = list(black_boxes_dict.keys())
+    n = np.random.randint(0, len(black_boxes_dict_list_keys))
+
+    return black_boxes_dict_list_keys[n]
+
 @qml.qnode(dev)
 def circuit(black_boxes_dict, black_boxe_name):
     qml.Hadamard(wires=0)
@@ -30,7 +36,7 @@ def circuit(black_boxes_dict, black_boxe_name):
 
     return qml.sample(qml.PauliZ([0]))
 
-black_box_name = np.random.choice(list(black_boxes_dict.keys()))
+black_box_name = random_black_box()
 
 result = circuit(black_boxes_dict, black_box_name)
 print(result)

@@ -826,6 +826,18 @@ f_4(1) = 0
 </div>
 </div>
 </div>
+<p>А вот таким образом мы будем случайно выбирать название функции для черного ящика:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">random_black_box</span><span class="p">(</span><span class="n">black_boxes_dict</span><span class="p">):</span>
+    <span class="n">black_boxes_dict_list_keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">black_boxes_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">black_boxes_dict_list_keys</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">black_boxes_dict_list_keys</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>А теперь самое важное – сам алгоритм Дойча:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -847,7 +859,7 @@ f_4(1) = 0
 <p>Выберем случайным образом функцию:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">black_box_name</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">black_boxes_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">black_box_name</span> <span class="o">=</span> <span class="n">random_black_box</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -877,7 +889,7 @@ f_4(1) = 0
 </div>
 </div>
 </div>
-<p>На примере алгоритма Дойча мы видим, что уже двухкубитная схема дает прирост скорости в два раза. Если же увеличивать количество входных параметров (как в аналогичном алгоритме Дойча-Йожи), то ускорение будет экспоненциальным.</p>
+<p>На примере алгоритма Дойча мы видим, что уже двухкубитная схема дает прирост скорости в два раза. Если же увеличивать количество входных параметров (как в аналогичном алгоритме <a class="reference external" href="https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%BE%D0%B9%D1%87%D0%B0_%E2%80%94_%D0%99%D0%BE%D0%B6%D0%B8">Дойча-Йожи</a>), то ускорение будет экспоненциальным.</p>
 <p>Для специалистов, занимающихся искусственным интеллектом, алгоритм может быть интересен тем, что не просто решает задачу нахождения некоторого значения, действуя как калькулятор, а дает возможность определить скрытую функцию. Это похоже на задачи машинного обучения, когда дата сайентист, производя математические манипуляции с данными, в итоге получает модель (фактически – функцию), описывающую связь признаков с целевой переменной. Таким образом, интерес специалистов ИИ к квантовым вычислениям, вполне понятен, как и перспективы квантовых вычислений в этой области.</p>
 </div>
 </div>
