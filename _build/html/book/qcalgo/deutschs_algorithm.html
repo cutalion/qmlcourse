@@ -617,34 +617,50 @@
 </ul>
 <p>Это функция, всегда возвращающая <span class="math notranslate nohighlight">\(0\)</span>, независимо от входного значения. Для нее справедливы выражения:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}
-f_1(0) = 0\\f_1(1) = 0
-\end{aligned}\end{align} \]</div>
+\[
+f_1(0) = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+f_1(1) = 0
+\]</div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f_2(x) = 1\)</span></p></li>
 </ul>
 <p>Такая функция всегда возвращает <span class="math notranslate nohighlight">\(1\)</span>, то есть верно следующее:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}
-f_2(0) = 1\\f_2(1) = 1
-\end{aligned}\end{align} \]</div>
+\[
+f_2(0) = 1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+f_2(1) = 1
+\]</div>
 <p>Ну а теперь посмотрим на сбалансированные функции. Для них характерно то, что они могут возвращать как <span class="math notranslate nohighlight">\(0\)</span>, так и <span class="math notranslate nohighlight">\(1\)</span>. В этом и заключается “баланс”.</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f_3(x) = x\)</span></p></li>
 </ul>
 <p>Это тождественная функция, которая ничего не делает с входным значением. Для нее справедливо следующее:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}
-f_3(0) = 0\\f_3(1) = 1
-\end{aligned}\end{align} \]</div>
+\[
+f_3(0) = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+f_3(1) = 1
+\]</div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f_4(x) = \overline{x}\)</span></p></li>
 </ul>
 <p>А вот эта функция инвертирует входное значение, то есть возвращает не то число, которое было подано на вход, а другое:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}
-f_4(0) = 1\\f_4(1) = 0
-\end{aligned}\end{align} \]</div>
+\[
+f_4(0) = 1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+f_4(1) = 0
+\]</div>
 <p>Классический компьютер справляется с задачей за два шага. Например, нам дана некоторая функция-“черный ящик”, и мы должны установить, сбалансирована ли она. На первом шаге мы отправляем в функцию входное значение <span class="math notranslate nohighlight">\(0\)</span>. Допустим, мы получили на выходе также <span class="math notranslate nohighlight">\(0\)</span>. Мы можем сказать, что данная функция – либо <span class="math notranslate nohighlight">\(f_1\)</span> (константная функция, всегда возвращающая <span class="math notranslate nohighlight">\(0\)</span>), либо <span class="math notranslate nohighlight">\(f_3\)</span> (сбалансированная функция, не меняющая входное значение). Для окончательного решения мы должны сделать еще один шаг – отправить в функцию значение <span class="math notranslate nohighlight">\(1\)</span>. Если при этом мы получим опять <span class="math notranslate nohighlight">\(0\)</span>, то это функция <span class="math notranslate nohighlight">\(f_1\)</span>, а если получили на выходе <span class="math notranslate nohighlight">\(1\)</span>, то искомая функция – <span class="math notranslate nohighlight">\(f_3\)</span>.</p>
 <p>Способа, с помощью которого на классическом компьютере можно за одно действие установить, сбалансирована функция или нет, не существует. И здесь свое преимущество показывает квантовый компьютер: он может установить класс функции за одно действие.</p>
 <p>Для начала рассмотрим простейшую схему, с помощью которой можно отправлять число на вход и получать ответ от черного ящика:</p>
