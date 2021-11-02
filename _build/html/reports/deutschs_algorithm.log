@@ -23,7 +23,7 @@ print(result)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mIndexError[0m                                Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2517/2829826919.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_2518/2829826919.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0mresult[0m [0;34m=[0m [0mcircuit[0m[0;34m([0m[0mblack_boxes_dict[0m[0;34m,[0m [0mblack_box_name[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      2[0m [0mprint[0m[0;34m([0m[0mresult[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
@@ -41,7 +41,7 @@ print(result)
 [0m[1;32m    580[0m [0;34m[0m[0m
 [1;32m    581[0m         [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mqfunc_output[0m[0;34m,[0m [0mSequence[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/tmp/ipykernel_2517/928807777.py[0m in [0;36mcircuit[0;34m(black_boxes_dict, black_boxe_name)[0m
+[0;32m/tmp/ipykernel_2518/928807777.py[0m in [0;36mcircuit[0;34m(black_boxes_dict, black_boxe_name)[0m
 [1;32m      5[0m     [0mqml[0m[0;34m.[0m[0mHadamard[0m[0;34m([0m[0mwires[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      6[0m [0;34m[0m[0m
 [0;32m----> 7[0;31m     [0mblack_boxes_dict[0m[0;34m[[0m[0mblack_box_name[0m[0;34m][0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
