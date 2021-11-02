@@ -752,39 +752,27 @@ f_4(1) = 0
 <li><p><span class="math notranslate nohighlight">\(f(x) = f_3\)</span></p></li>
 </ul>
 <p>Здесь ситуация сложнее, так как <span class="math notranslate nohighlight">\(f(x)\)</span> будет зависеть от состояния первого кубита. Поэтому мы раскроем скобки, а значения функции подставим позже:</p>
-<div class="math notranslate nohighlight">
-\[
+<p><span class="math notranslate nohighlight">\(
 |\psi\rangle = \frac{1}{2}(|0\rangle + |1\rangle)(|0 \oplus f(x)\rangle - |1 \oplus f(x)\rangle) =
-\frac{1}{2}(|0\rangle |0 \oplus f(x)\rangle - |0\rangle |1 \oplus f(x)\rangle + |1\rangle |0 \oplus f(x)\rangle - |1\rangle |1 \oplus f(x)\rangle)=
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+\frac{1}{2}(|0\rangle |0 \oplus f(x)\rangle - |0\rangle |1 \oplus f(x)\rangle + |1\rangle |0 \oplus f(x)\rangle - |1\rangle |1 \oplus f(x)\rangle)=\)</span></p>
+<p><span class="math notranslate nohighlight">\(
 =\frac{1}{2}(|0\rangle |0 \oplus 0\rangle - |0\rangle |1 \oplus 0\rangle + |1\rangle |0 \oplus 1\rangle - |1\rangle |1 \oplus 1\rangle) =
-\frac{1}{2}(|00\rangle - |01\rangle + |11\rangle - |10\rangle) = 
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-=\frac{1}{2}(|00\rangle - |01\rangle - |10\rangle + |11\rangle) = \frac{1}{2}(|0\rangle - |1\rangle)(|0\rangle - |1\rangle)
-\]</div>
+\frac{1}{2}(|00\rangle - |01\rangle + |11\rangle - |10\rangle) =\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+=\frac{1}{2}(|00\rangle - |01\rangle - |10\rangle + |11\rangle) = \frac{1}{2}(|0\rangle - |1\rangle)(|0\rangle - |1\rangle)\)</span></p>
 <p>Видно, что первый кубит поменял свое состояние - теперь он в суперпозиции <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)\)</span>, так что далее к нему можно применить оператор Адамара, после которого он перейдет в состояние <span class="math notranslate nohighlight">\(|1\rangle\)</span>.</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f(x) = f_4\)</span></p></li>
 </ul>
 <p>Здесь будет похожая ситуация:</p>
-<div class="math notranslate nohighlight">
-\[
+<p><span class="math notranslate nohighlight">\(
 |\psi\rangle = \frac{1}{2}(|0\rangle + |1\rangle)(|0 \oplus f(x)\rangle - |1 \oplus f(x)\rangle) =
-\frac{1}{2}(|0\rangle |0 \oplus f(x)\rangle - |0\rangle |1 \oplus f(x)\rangle + |1\rangle |0 \oplus f(x)\rangle - |1\rangle |1 \oplus f(x)\rangle)=
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+\frac{1}{2}(|0\rangle |0 \oplus f(x)\rangle - |0\rangle |1 \oplus f(x)\rangle + |1\rangle |0 \oplus f(x)\rangle - |1\rangle |1 \oplus f(x)\rangle)=\)</span></p>
+<p><span class="math notranslate nohighlight">\(
 =\frac{1}{2}(|0\rangle |0 \oplus 1\rangle - |0\rangle |1 \oplus 1\rangle + |1\rangle |0 \oplus 0\rangle - |1\rangle |1 \oplus 0\rangle) =
-\frac{1}{2}(|01\rangle - |00\rangle + |10\rangle - |11\rangle) =
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-=-\frac{1}{2}(|00\rangle - |01\rangle + |11\rangle - |10\rangle) =-\frac{1}{2}(|0\rangle - |1\rangle)(|0\rangle - |1\rangle)
-\]</div>
+\frac{1}{2}(|01\rangle - |00\rangle + |10\rangle - |11\rangle) =\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+=-\frac{1}{2}(|00\rangle - |01\rangle + |11\rangle - |10\rangle) =-\frac{1}{2}(|0\rangle - |1\rangle)(|0\rangle - |1\rangle)\)</span></p>
 <p>Получили то же состояние <span class="math notranslate nohighlight">\(|\psi\rangle\)</span>, что и для <span class="math notranslate nohighlight">\(f_3\)</span>, с точностью до фазового множителя. Соответственно, здесь первый кубит после применения оператора Адамара также будет измерен с результатом <span class="math notranslate nohighlight">\(1\)</span>.</p>
 <p>Теперь можно получить более компактную формулу, которая подходит для всех четырех функций:</p>
 <div class="math notranslate nohighlight">
