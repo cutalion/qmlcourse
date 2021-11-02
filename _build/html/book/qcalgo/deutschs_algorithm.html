@@ -698,11 +698,14 @@ f_4(1) = 0
 </tbody>
 </table>
 <p>Операция <span class="math notranslate nohighlight">\(XOR\)</span> хороша для нас тем, что она не разрушает значение <span class="math notranslate nohighlight">\(|y\rangle\)</span>, так как является обратимой. Убедиться в этом можно, проверив тождество:</p>
-<p><span class="math notranslate nohighlight">\((a \oplus b) \oplus b = a\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+(a \oplus b) \oplus b = a
+\]</div>
 <p><em>Схема 1</em> пока что не дает преимущества по сравнению с классическим компьютером, но мы можем ее немного усовершенствовать:</p>
 <div class="figure align-default" id="scheme-2">
 <a class="reference internal image-reference" href="../../_images/scheme_2.png"><img alt="../../_images/scheme_2.png" src="../../_images/scheme_2.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">Схема 2.</span><a class="headerlink" href="#scheme-2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">Схема 2</span><a class="headerlink" href="#scheme-2" title="Permalink to this image">¶</a></p>
 </div>
 <p>В новой схеме оба кубита вначале будут находиться в состоянии <span class="math notranslate nohighlight">\(|0\rangle\)</span>. Затем мы применим к верхнему кубиту оператор Адамара, а к нижнему - гейт <span class="math notranslate nohighlight">\(X\)</span>, а затем так же, как и к верхнему, оператор Адамара. Тем самым мы приведем оба кубита в состояние суперпозиции перед тем, как они попадут на вход функции <span class="math notranslate nohighlight">\(U_f\)</span>.
 Верхний кубит будет находиться в такой суперпозиции:</p>
