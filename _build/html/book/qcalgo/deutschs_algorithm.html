@@ -612,7 +612,7 @@
 </div>
 <p>Итак, в чем состоит задача, которую решает алгоритм? Представьте, что у вас есть функция, которая представляет собой “черный ящик”, принимающий на вход число из множества <span class="math notranslate nohighlight">\(\{0, 1\}\)</span>. Функция неким образом обрабатывает входное значение и возвращает число из этого же множества, то есть либо <span class="math notranslate nohighlight">\(0\)</span>, либо <span class="math notranslate nohighlight">\(1\)</span>. Нам известно, что эта функция принадлежит либо к классу сбалансированных функций, либо к классу константных функций (которые мы также можем называть несбалансированными). Задача алгоритма – установить, к какому классу принадлежит функция.</p>
 <p>Рассмотрим все варианты этих двух классов. Всего их четыре, то есть по две функции в каждом классе. Начнем с несбалансированных:</p>
-<ol>
+<ul>
 <li><p><span class="math notranslate nohighlight">\(f_1(x) = 0\)</span>
 Это функция, всегда возвращающая <span class="math notranslate nohighlight">\(0\)</span>, независимо от входного значения. Для нее справедливы выражения:</p>
 <div class="math notranslate nohighlight">
@@ -629,9 +629,9 @@
     f_2(1) = 1
     \]</div>
 </li>
-</ol>
+</ul>
 <p>Ну а теперь посмотрим на сбалансированные функции. Для них характерно то, что они могут возвращать как <span class="math notranslate nohighlight">\(0\)</span>, так и <span class="math notranslate nohighlight">\(1\)</span>. В этом и заключается “баланс”.</p>
-<ol>
+<ul>
 <li><p><span class="math notranslate nohighlight">\(f_3(x) = x\)</span>
 Это тождественная функция, которая ничего не делает с входным значением. Для нее справедливо следующее:</p>
 <div class="math notranslate nohighlight">
@@ -648,7 +648,7 @@
     f_4(1) = 0
     \]</div>
 </li>
-</ol>
+</ul>
 <p>Классический компьютер справляется с задачей за два шага. Например, нам дана некоторая функция-“черный ящик”, и мы должны установить, сбалансирована ли она. На первом шаге мы отправляем в функцию входное значение <span class="math notranslate nohighlight">\(0\)</span>. Допустим, мы получили на выходе также <span class="math notranslate nohighlight">\(0\)</span>. Мы можем сказать, что данная функция – либо <span class="math notranslate nohighlight">\(f_1\)</span> (константная функция, всегда возвращающая <span class="math notranslate nohighlight">\(0\)</span>), либо <span class="math notranslate nohighlight">\(f_3\)</span> (сбалансированная функция, не меняющая входное значение). Для окончательного решения мы должны сделать еще один шаг – отправить в функцию значение <span class="math notranslate nohighlight">\(1\)</span>. Если при этом мы получим опять <span class="math notranslate nohighlight">\(0\)</span>, то это функция <span class="math notranslate nohighlight">\(f_1\)</span>, а если получили на выходе <span class="math notranslate nohighlight">\(1\)</span>, то искомая функция – <span class="math notranslate nohighlight">\(f_3\)</span>.</p>
 <p>Способа, с помощью которого на классическом компьютере можно за одно действие установить, сбалансирована функция или нет, не существует. И здесь свое преимущество показывает квантовый компьютер: он может установить класс функции за одно действие.</p>
 <p>Для начала рассмотрим простейшую схему, с помощью которой можно отправлять число на вход и получать ответ от черного ящика:</p>
@@ -656,10 +656,9 @@
 <a class="reference internal image-reference" href="../../_images/scheme_1.png"><img alt="../../_images/scheme_1.png" src="../../_images/scheme_1.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">Схема 1.</span><a class="headerlink" href="#scheme-1" title="Permalink to this image">¶</a></p>
 </div>
-<p><span class="math notranslate nohighlight">\(U_f\)</span> на данной схеме - это неизвестная функция (ее также часто называют “оракул”), являющаяся унитарным оператором. Обратите внимание, что в квантовой схеме используются два кубита. Это нужно для того, чтобы информация, с которой работает квантовый компьютер, не стиралась. В квантовом компьютере важно, чтобы все действия с кубитами (кроме операции измерения) были обратимыми, а для этого информация должна сохраняться. В верхнем кубите будет записано входное значение, а в нижнем - выходное значение функции. Таким образом, входное значение не будет перезаписано значением, которое вернет функция.</p>
-<p>Но нам важно будет не только сохранить значение <span class="math notranslate nohighlight">\(|x\rangle\)</span>, но также и не разрушить <span class="math notranslate nohighlight">\(|y\rangle\)</span>. Так как кубит <span class="math notranslate nohighlight">\(y\)</span> очевидно имеет некоторое изначальное значение, мы не можем его просто перезаписать тем числом, которое выдаст функция <span class="math notranslate nohighlight">\(f(x)\)</span>. Здесь на помощь приходит операция исключающее ИЛИ - <span class="math notranslate nohighlight">\(XOR\)</span> (также ее можно называть сложением по модулю 2), обозначенная на схеме как <span class="math notranslate nohighlight">\(\oplus\)</span>. В процессе работы черный ящик <span class="math notranslate nohighlight">\(U_f\)</span> не только находит значение <span class="math notranslate nohighlight">\(f(x)\)</span>, но и применяет исключающее ИЛИ к значениям <span class="math notranslate nohighlight">\(y\)</span> и <span class="math notranslate nohighlight">\(f(x)\)</span>.
-<br/>
-Операции <span class="math notranslate nohighlight">\(XOR\)</span> соответствует такая таблица истинности:</p>
+<p><span class="math notranslate nohighlight">\(U_f\)</span> на данной схеме – это неизвестная функция (ее также часто называют “оракул”), являющаяся унитарным оператором. Обратите внимание, что в квантовой схеме используются два кубита. Это нужно для того, чтобы информация, с которой работает квантовый компьютер, не стиралась. В квантовом компьютере важно, чтобы все действия с кубитами (кроме операции измерения) были обратимыми, а для этого информация должна сохраняться. В верхнем кубите будет записано входное значение, а в нижнем - выходное значение функции. Таким образом, входное значение не будет перезаписано значением, которое вернет функция.</p>
+<p>Но нам важно будет не только сохранить значение <span class="math notranslate nohighlight">\(|x\rangle\)</span>, но также и не разрушить <span class="math notranslate nohighlight">\(|y\rangle\)</span>. Так как кубит <span class="math notranslate nohighlight">\(y\)</span> очевидно имеет некоторое изначальное значение, мы не можем его просто перезаписать тем числом, которое выдаст функция <span class="math notranslate nohighlight">\(f(x)\)</span>. Здесь на помощь приходит операция исключающее ИЛИ - <span class="math notranslate nohighlight">\(XOR\)</span> (также ее можно называть сложением по модулю 2), обозначенная на схеме как <span class="math notranslate nohighlight">\(\oplus\)</span>. В процессе работы черный ящик <span class="math notranslate nohighlight">\(U_f\)</span> не только находит значение <span class="math notranslate nohighlight">\(f(x)\)</span>, но и применяет исключающее ИЛИ к значениям <span class="math notranslate nohighlight">\(y\)</span> и <span class="math notranslate nohighlight">\(f(x)\)</span>.</p>
+<p>Операции <span class="math notranslate nohighlight">\(XOR\)</span> соответствует такая таблица истинности:</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:center head"><p>a</p></th>
@@ -686,31 +685,37 @@
 </tr>
 </tbody>
 </table>
-<p>Операция <span class="math notranslate nohighlight">\(XOR\)</span> хороша для нас тем, что она не разрушает значение <span class="math notranslate nohighlight">\(|y\rangle\)</span>, так как является обратимой. Убедиться в этом можно, проверив тождество:
-<br/>
-<span class="math notranslate nohighlight">\((a \oplus b) \oplus b = a\)</span></p>
+<p>Операция <span class="math notranslate nohighlight">\(XOR\)</span> хороша для нас тем, что она не разрушает значение <span class="math notranslate nohighlight">\(|y\rangle\)</span>, так как является обратимой. Убедиться в этом можно, проверив тождество:</p>
+<p><span class="math notranslate nohighlight">\((a \oplus b) \oplus b = a\)</span></p>
 <p><em>Схема 1</em> пока что не дает преимущества по сравнению с классическим компьютером, но мы можем ее немного усовершенствовать:</p>
 <div class="figure align-default" id="scheme-2">
 <a class="reference internal image-reference" href="../../_images/scheme_2.png"><img alt="../../_images/scheme_2.png" src="../../_images/scheme_2.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">Схема 2.</span><a class="headerlink" href="#scheme-2" title="Permalink to this image">¶</a></p>
 </div>
 <p>В новой схеме оба кубита вначале будут находиться в состоянии <span class="math notranslate nohighlight">\(|0\rangle\)</span>. Затем мы применим к верхнему кубиту оператор Адамара, а к нижнему - гейт <span class="math notranslate nohighlight">\(X\)</span>, а затем так же, как и к верхнему, оператор Адамара. Тем самым мы приведем оба кубита в состояние суперпозиции перед тем, как они попадут на вход функции <span class="math notranslate nohighlight">\(U_f\)</span>.
-Верхний кубит будет находиться в такой суперпозиции:
-<br/>
-<span class="math notranslate nohighlight">\(|x\rangle = \frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle,\)</span>
-<br/>
-а нижний - в такой:
-<br/>
-<span class="math notranslate nohighlight">\(|y\rangle = \frac{1}{\sqrt{2}}|0\rangle - \frac{1}{\sqrt{2}}|1\rangle.\)</span></p>
+Верхний кубит будет находиться в такой суперпозиции:</p>
+<div class="math notranslate nohighlight">
+\[
+|x\rangle = \frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle,
+\]</div>
+<p>а нижний - в такой:</p>
+<div class="math notranslate nohighlight">
+\[
+|y\rangle = \frac{1}{\sqrt{2}}|0\rangle - \frac{1}{\sqrt{2}}|1\rangle.
+\]</div>
 <p>Если рассмотреть это как систему <span class="math notranslate nohighlight">\(|\psi\rangle\)</span>, состоящую из двух кубитов, то она будет выглядеть так:</p>
-<p><span class="math notranslate nohighlight">\(|\psi\rangle = \frac{1}{2}(|0\rangle + |1\rangle)(|0\rangle - |1\rangle)\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+|\psi\rangle = \frac{1}{2}(|0\rangle + |1\rangle)(|0\rangle - |1\rangle)
+\]</div>
 <p>Сразу после <span class="math notranslate nohighlight">\(U_f\)</span> система будет находиться в состоянии:</p>
-<p><span class="math notranslate nohighlight">\(|\psi\rangle = \frac{1}{2}(|0\rangle + |1\rangle)(|0 \oplus f(x)\rangle - |1 \oplus f(x)\rangle)\)</span></p>
+<div class="math notranslate nohighlight">
+\[|\psi\rangle = \frac{1}{2}(|0\rangle + |1\rangle)(|0 \oplus f(x)\rangle - |1 \oplus f(x)\rangle)
+\]</div>
 <p>После того, как <span class="math notranslate nohighlight">\(U_f\)</span> отрабатывает, нижний кубит, как это ни странно, уже нас не интересует, так что к нему операции больше не применяются, и его измерение также не производится.</p>
-<p>Дело в том, что ответ на вопрос о том, сбалансирована функция <span class="math notranslate nohighlight">\(f(x)\)</span> или нет, будет нами получен из верхнего кубита после того, как на него подействует оператор Адамара и будет произведено измерение.</p>
-<p>В том случае, если функция сбалансирована, результат измерения верхнего кубита будет равен <span class="math notranslate nohighlight">\(1\)</span>, а если несбалансированна - <span class="math notranslate nohighlight">\(0\)</span>.</p>
-<p>Разберемся подробнее, почему это происходит.</p>
-<p>Рассмотрим все возможные <span class="math notranslate nohighlight">\(f(x)\)</span>, которые могут находиться в черном ящике:</p>
+<p>Дело в том, что ответ на вопрос о том, сбалансирована функция <span class="math notranslate nohighlight">\(f(x)\)</span> или нет, будет нами получен из верхнего кубита после того, как на него подействует оператор Адамара и будет произведено измерение.
+В том случае, если функция сбалансирована, результат измерения верхнего кубита будет равен <span class="math notranslate nohighlight">\(1\)</span>, а если несбалансированна - <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<p>Разберемся подробнее, почему это происходит. Рассмотрим все возможные <span class="math notranslate nohighlight">\(f(x)\)</span>, которые могут находиться в черном ящике:</p>
 <p>1). <span class="math notranslate nohighlight">\(f(x) = f_1\)</span></p>
 <p>В этом случае <span class="math notranslate nohighlight">\(f(x)\)</span> всегда принимает значение <span class="math notranslate nohighlight">\(0\)</span>, и система кубитов будет выглядеть так:</p>
 <p><span class="math notranslate nohighlight">\(|\psi\rangle = \frac{1}{2}(|0\rangle + |1\rangle)(|0\rangle - |1\rangle) = \frac{1}{2}(|00\rangle - |01\rangle + |10\rangle - |11\rangle)\)</span></p>
