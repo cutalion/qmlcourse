@@ -629,7 +629,7 @@
 <p>Разберем операции, которые включает в себя каждая итерация, но перед этим добавим в схему еще один кубит, который мы будем называть вспомогательным. Он нужен для хранения метки искомого индекса. Звучит не совсем понятно, но ничего сложного в этом нет, все станет ясным после разбора работы функции-оракула. Итак, наша база данных двухкубитная, но сама схема состоит из трех кубитов.</p>
 <p>Квантовая схема выглядит так:</p>
 <div class="figure align-default" id="grover-2-qubits">
-<a class="reference internal image-reference" href="../../_images/grover_2_qubits.png"><img alt="../../_images/grover_2_qubits.png" src="../../_images/grover_2_qubits.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/grover_2_qubits.png"><img alt="../../_images/grover_2_qubits.png" src="../../_images/grover_2_qubits.png" style="width: 666px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text">Алгоритм Гровера для n=2 (искомый индекс 11).</span><a class="headerlink" href="#grover-2-qubits" title="Permalink to this image">¶</a></p>
 </div>
 <p>В самом начале, еще до всех итераций, все кубиты (включая вспомогательный) должны быть приведены в состояние суперпозиции с помощью оператора Адамара. Причем начальное состояние всех кубитов должно быть равно <span class="math notranslate nohighlight">\(0\)</span>, кроме вспомогательного кубита – до действия оператора Адамара он должен быть приведен в состояние <span class="math notranslate nohighlight">\(1\)</span>.</p>
