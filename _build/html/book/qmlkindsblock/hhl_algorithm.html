@@ -538,10 +538,7 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../_sources/book/qmlkindsblock/hhl_algorithm.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+        
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="../../_sources/book/qmlkindsblock/hhl_algorithm.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
@@ -578,23 +575,6 @@
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/SemyonSinchenko/qmlcourse/master?urlpath=tree/qmlcourseRU/book/qmlkindsblock/hhl_algorithm.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
 
         </div>
 
@@ -640,15 +620,15 @@
 <p class="admonition-title">Note</p>
 <p>Именно HHL-алгоритм произвел настоящую революцию в области квантового машинного обучения. Ведь решение систем линейных уравнений так или иначе находится “под капотом” почти любого известного алгоритма машинного обучения. И действительно:</p>
 <ul class="simple">
-<li><p>Классические линейная и логистическая регрессия сводятся именно к этой задаче;</p></li>
-<li><p>Задача SVM может быть переформулирована в терминах решений систем линейных уравнений;</p></li>
-<li><p>Задача нахождения обартной матрицы (часто используется в глубоком обучении) внутри обычно решается через решение линейной системы;
-И это только малая часть примеров!</p></li>
+<li><p>классические линейная и логистическая регрессия сводятся именно к этой задаче;</p></li>
+<li><p>задача SVM может быть переформулирована в терминах решений систем линейных уравнений;</p></li>
+<li><p>задача нахождения обартной матрицы (часто используется в глубоком обучении) внутри обычно решается через решение линейной системы;</p></li>
 </ul>
+<p>И это только малая часть примеров!</p>
 <p>Так что знакомство с QML не будет полным без ознакомления с этим прекрасным, но очень сложным алгоритмом!</p>
 </div>
 <div class="figure align-default" id="lloyd">
-<a class="reference internal image-reference" href="../../_images/614px-Seth_Lloyd.jpg"><img alt="../../_images/614px-Seth_Lloyd.jpg" src="../../_images/614px-Seth_Lloyd.jpg" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../_images/614px-Seth_Lloyd.jpg"><img alt="../../_images/614px-Seth_Lloyd.jpg" src="../../_images/614px-Seth_Lloyd.jpg" style="width: 350px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 87 </span><span class="caption-text">Сет Ллойд, профессор MIT и один из создателей HHL-алгоритма</span><a class="headerlink" href="#lloyd" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="id4">
@@ -663,21 +643,27 @@ a_{21} x_{1}+a_{22} x_{2} = b_{2}
 \end{split}\]</div>
 <p>Что в операторной форме можно переписать как:</p>
 <div class="math notranslate nohighlight">
-\[\large A\vec{x} = \vec{b}\]</div>
+\[
+\large A\vec{x} = \vec{b},
+\]</div>
 <p>где <span class="math notranslate nohighlight">\(A\)</span> – эрмитова матрица.</p>
 <p>Мы будем решать задачу на квантовом компьютере, то нам нужно перейти к квантовым состояниям:</p>
 <div class="math notranslate nohighlight">
-\[\large A|x\rangle = |b\rangle\]</div>
+\[
+\large A|x\rangle = |b\rangle
+\]</div>
 <p>Чтобы найти искомый вектор <span class="math notranslate nohighlight">\(|x\rangle\)</span>, все что нам по сути нужно сделать – это найти обратный к <span class="math notranslate nohighlight">\(A\)</span> оператор (обозначаемый <span class="math notranslate nohighlight">\(A^{-1}\)</span>), который находится из равенства:</p>
 <div class="math notranslate nohighlight">
-\[\large AA^{-1} = A^{-1}A = I\]</div>
+\[
+\large AA^{-1} = A^{-1}A = I
+\]</div>
 <p>Распишем применительно к нашей задаче поиска вектора <span class="math notranslate nohighlight">\(|b\rangle\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\large A|x\rangle = |b\rangle\]</div>
-<div class="math notranslate nohighlight">
-\[\large A^{-1}A|x\rangle = A^{-1}|b\rangle\]</div>
-<div class="math notranslate nohighlight">
-\[\large |x\rangle = A^{-1}|b\rangle\]</div>
+\[\begin{split}
+\large A|x\rangle = |b\rangle \\
+\large A^{-1}A|x\rangle = A^{-1}|b\rangle \\
+\large |x\rangle = A^{-1}|b\rangle \\
+\end{split}\]</div>
 <p>Оказывается, что и это все можно провернуть с помощью известных квантовых преобразований. Принципиальный вид нашей схемы представлен следующим образом:</p>
 <div class="figure align-default" id="hhl-curcuit">
 <a class="reference internal image-reference" href="../../_images/hhl_circuit.svg"><img alt="../../_images/hhl_circuit.svg" src="../../_images/hhl_circuit.svg" width="800px" /></a>
@@ -688,7 +674,7 @@ a_{21} x_{1}+a_{22} x_{2} = b_{2}
 <div class="section" id="id5">
 <h2>Реализация HHL<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>Для начала мы должны подготовить наши регистры по всем квантовым законам: <span class="math notranslate nohighlight">\(|b\rangle\)</span> и <span class="math notranslate nohighlight">\(|x\rangle\)</span> должны быть пронормированы, а оператор <span class="math notranslate nohighlight">\(A\)</span> должен быть эрмитовым. Надеемся, что Вы помните про ортонормированный базис, сферу Блоха, комплексное представление векторов <span class="math notranslate nohighlight">\(|0\rangle\)</span> и <span class="math notranslate nohighlight">\(|1\rangle\)</span>… Если нет, то обратитесь к предыдущим разделам курса.</p>
-<p>Мы будем использовать оператор <span class="math notranslate nohighlight">\(U = e^{iAt}\)</span>, и нужно, чтобы он был обратим – для этого <span class="math notranslate nohighlight">\(А\)</span> должна быть эрмитовой.</p>
+<p>Мы будем использовать оператор <span class="math notranslate nohighlight">\(U = e^{iAt}\)</span>, и нужно, чтобы он был обратим –- для этого <span class="math notranslate nohighlight">\(А\)</span> должна быть эрмитовой.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>В случае, когда <span class="math notranslate nohighlight">\(A\)</span> <strong>не является эрмитовой</strong>, нужно перейти к <strong>эрмитовой матрице</strong> <span class="math notranslate nohighlight">\(C\)</span>:</p>
@@ -771,7 +757,9 @@ e^{2\pi i \psi} = e^{i \lambda_j t}
 <p>Итак, мы подготовились, вспомнили много хорошего, теперь пошагово распишем наш алгоритм.</p>
 <p>Стартуем мы со следующим состоянием:</p>
 <div class="math notranslate nohighlight">
-\[\large |0\rangle_{a}|0\rangle_{r}|b\rangle_{m}\]</div>
+\[
+\large |0\rangle_{a}|0\rangle_{r}|b\rangle_{m}
+\]</div>
 <p>Т.е. наше состояние будет храниться в трех регистрах, в каждом из которых содержится столько кубитов, сколько нужно для решения задачи.</p>
 <ol>
 <li><p>Применение QPE с использованием преобразования <span class="math notranslate nohighlight">\(e^{iAt}\)</span>, после чего мы получим собственное значение оператора <span class="math notranslate nohighlight">\(A\)</span> во втором регистре:</p>
