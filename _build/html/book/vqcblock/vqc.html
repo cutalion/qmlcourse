@@ -706,7 +706,7 @@
 <p>Разберем написанное выше на примере.</p>
 <div class="section" id="x">
 <h3>Аппроксимация <a class="reference internal" href="../glossary.html#term-25"><span class="xref std std-term">матрицы Паули</span></a> <strong>X</strong> оператором поворота<a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h3>
-<p>Из предыдущих лекций мы помним, что оператор <span class="math notranslate nohighlight">\(\hat{\mathbf{X}}\)</span> работает как квантовый аналог оператора =NOT= – инвертирует значение кубита.</p>
+<p>Из предыдущих лекций мы помним, что оператор <span class="math notranslate nohighlight">\(\hat{\mathbf{X}}\)</span> работает как квантовый аналог оператора <span class="math notranslate nohighlight">\(NOT\)</span> – инвертирует значение кубита.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pennylane</span> <span class="k">as</span> <span class="nn">qml</span>
@@ -719,14 +719,13 @@
     <span class="k">return</span> <span class="n">qml</span><span class="o">.</span><span class="n">expval</span><span class="p">(</span><span class="n">qml</span><span class="o">.</span><span class="n">PauliZ</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 
 
-<span class="nb">print</span><span class="p">(</span><span class="n">simple_x_gate</span><span class="p">())</span>
-
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">simple_x_gate</span><span class="p">()</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">simple_x_gate</span><span class="o">.</span><span class="n">draw</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>simple_x_gate() = tensor(-1., requires_grad=True)
  0: ──X──┤ ⟨Z⟩ 
 </pre></div>
 </div>
@@ -767,7 +766,7 @@ Try 3.14159265359: -1.0
 </div>
 </div>
 <p>Получается, что нужный нам угол <span class="math notranslate nohighlight">\(\phi\)</span> составляет ровно <span class="math notranslate nohighlight">\(\pi\)</span>. Это логично, мы могли бы это легко понять из простейших соображений линейной алгебры, либо взглянув на сферу Блоха. Но целью этого примера было проиллюстрировать работу VQC.</p>
-<p>Наш процесс “подбора” параметра <span class="math notranslate nohighlight">\(\phi\)</span> крайне примитивный, но следующую лекцию мы полностью посвятим тому, как посчитать градиент параметров квантовой схемы и задействовать всю мощь известных на сегодня методов оптимизации. А пока еще немного подумаем о том, как можно закодировать данные в квантовую схему.</p>
+<p>Наш процесс “подбора” параметра <span class="math notranslate nohighlight">\(\phi\)</span> крайне примитивный, на следующующих лекциях мы рассмотрим, как посчитать градиент параметров квантовой схемы и задействовать всю мощь известных на сегодня методов оптимизации. А пока еще немного подумаем о том, как можно закодировать данные в квантовую схему.</p>
 </div>
 </div>
 <div class="section" id="id6">
@@ -889,7 +888,7 @@ Try 3.14159265359: -1.0
 <div class="section" id="id9">
 <h2>Что мы узнали из лекции<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>В эпоху NISQ эпоху мы чаще всего ограничены комбинированием квантового и классического машинного обучения.</p></li>
+<li><p>В эпоху NISQ мы чаще всего ограничены комбинированием квантового и классического машинного обучения.</p></li>
 <li><p>Ключевой элемент такого обучения – вариационные квантовые схемы (VQC). Основная идея VQC:</p>
 <ul>
 <li><p>кодируем классические данные в квантовые операторы;</p></li>
