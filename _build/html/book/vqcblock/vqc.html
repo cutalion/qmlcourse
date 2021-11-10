@@ -745,15 +745,13 @@
 <p>Теперь попробуем подобрать <span class="math notranslate nohighlight">\(\phi\)</span> так, чтобы параметризованная схема работала точно так же, как оператор <span class="math notranslate nohighlight">\(\hat{X}\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Try 1.0: </span><span class="si">{</span><span class="n">vqc</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Try 2.0: </span><span class="si">{</span><span class="n">vqc</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Try 3.0: </span><span class="si">{</span><span class="n">vqc</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Try 3.14159265359: </span><span class="si">{</span><span class="n">vqc</span><span class="p">(</span><span class="mf">3.14159265359</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">3.14159265359</span><span class="p">]:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Try </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">vqc</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Try 1.0: 1.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Try 1.0: 0.5403023058681398
 Try 2.0: -0.4161468365471423
 Try 3.0: -0.9899924966004454
 Try 3.14159265359: -1.0
