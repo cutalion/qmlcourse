@@ -260,7 +260,7 @@ def random_black_box(black_boxes_dict):
 
 ```{code-cell} ipython3
 @qml.qnode(dev)
-def circuit(black_boxe_name):
+def circuit(black_box_name):
     qml.Hadamard(wires=0)
     qml.PauliX(wires=1)
     qml.Hadamard(wires=1)
